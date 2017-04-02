@@ -8,7 +8,7 @@
 	<footer>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col">
 					<?php $args = array(
 						'theme_location' => 'bottom',
 						'container'=> false,
@@ -22,6 +22,7 @@
 			</div>
 		</div>
 	</footer>
+
 <?php wp_footer(); ?>
 </body>
 </html>

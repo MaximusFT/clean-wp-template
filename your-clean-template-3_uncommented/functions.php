@@ -6,9 +6,11 @@
  */
 
 add_theme_support('title-tag');
+add_filter('widget_text', 'do_shortcode'); // В виджете ТЕКСТ можно использовать Шорткоды
 
 register_nav_menus(array(
 	'top' => 'Верхнее',
+	'top-top' => 'Совсем верхнее', // Верхнее
 	'bottom' => 'Внизу'
 ));
 
@@ -96,9 +98,9 @@ if (!function_exists('add_scripts')) {
 	function add_scripts() {
 	    if(is_admin()) return false;
 	    wp_deregister_script('jquery');
-	    wp_enqueue_script('jquery','//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js','','',true);
+	    wp_enqueue_script('jquery','//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js','','',true);
 	    wp_enqueue_script('bootstrap', get_template_directory_uri().'/js/bootstrap.min.js','','',true);
-	    wp_enqueue_script('main', get_template_directory_uri().'/js/main.js','','',true);
+	    wp_enqueue_script('main',      get_template_directory_uri().'/js/main.js','','',true);
 	}
 }
 
@@ -106,8 +108,10 @@ add_action('wp_print_styles', 'add_styles');
 if (!function_exists('add_styles')) {
 	function add_styles() {
 	    if(is_admin()) return false;
-	    wp_enqueue_style( 'bs', get_template_directory_uri().'/css/bootstrap.min.css' );
-		wp_enqueue_style( 'main', get_template_directory_uri().'/style.css' );
+	    wp_enqueue_style( 'bs',    get_template_directory_uri().'/css/bootstrap.min.css' );
+	    wp_enqueue_style( 'bs',    get_template_directory_uri().'/css/font-awesome.min.css' );
+		wp_enqueue_style( 'style', get_template_directory_uri().'/style.css' );
+		wp_enqueue_style( 'main',  get_template_directory_uri().'/css/main.css' );
 	}
 }
 
